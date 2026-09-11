@@ -13,10 +13,12 @@ Tiger: test-202, train-2492 , val-179
 Llama: test-205, train-950, val-215
 Wombat: test-184, train-1272, val-217
 Cheetah: test-208, train-2267, val-206
-Boar: test-8, train-42, val-5
+Boar: test-7, train-42, val-6
 Giraffe: test-103, train-889, val-114
 Gorilla: test-208, train-951, val-225
 Orangutan: test-206, train-1380, val-192
 Cougar: test-191, train-963, val-175
 Snow_Leopard: test-202, train-1282, val-180
 Jaguar: test-20, train-1151,val-16
+Cat: test-500, train-4018, val-500
+Dog: test-500, train-4020, val-500
