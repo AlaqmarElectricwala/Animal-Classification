@@ -1,0 +1,8 @@
+# Animal Classification — Streamlit App
+# Pinned to major versions for reproducibility.
+
+streamlit>=1.36,<2
+torch>=2.0,<3
+torchvision>=0.15,<1
+Pillow>=10.0,<13
+numpy>=1.24,<3
