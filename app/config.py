@@ -24,18 +24,22 @@ LOG_LEVEL: int = logging.INFO
 # ---------------------------------------------------------------------------
 _APP_DIR: pathlib.Path = pathlib.Path(__file__).resolve().parent
 PROJECT_ROOT: pathlib.Path = _APP_DIR.parent
-MODEL_PATH: pathlib.Path = PROJECT_ROOT / "model" / "animal_classification_mobilenetv3.pth"
+MODEL_PATH: pathlib.Path = PROJECT_ROOT / "model" / "animal_classification_mobilenetv3_23classes.pth"
 
 # ---------------------------------------------------------------------------
 # Class labels — ground-truth order, must not be reordered
 # ---------------------------------------------------------------------------
 CLASS_NAMES: List[str] = [
+    "antelope",
     "badger",
     "bison",
     "boar",
+    "cat",
     "cheetah",
     "chimpanzee",
     "cougar",
+    "cow",
+    "dog",
     "giraffe",
     "gorilla",
     "hippopotamus",
@@ -51,7 +55,7 @@ CLASS_NAMES: List[str] = [
     "wombat",
 ]
 
-NUM_CLASSES: int = len(CLASS_NAMES)  # 19
+NUM_CLASSES: int = len(CLASS_NAMES)  # 23
 
 # ---------------------------------------------------------------------------
 # Preprocessing — matches ImageNet normalisation used during training

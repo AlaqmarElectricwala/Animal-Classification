@@ -18,7 +18,7 @@ from PIL import Image, UnidentifiedImageError
 # ---------------------------------------------------------------------------
 # Bootstrap logging before any other app imports
 # ---------------------------------------------------------------------------
-from config import ALLOWED_EXTENSIONS, CLASS_NAMES, DEVICE, LOG_FORMAT, LOG_LEVEL, MAX_UPLOAD_MB
+from config import ALLOWED_EXTENSIONS, CLASS_NAMES, DEVICE, LOG_FORMAT, LOG_LEVEL, MAX_UPLOAD_MB, MODEL_PATH
 
 logging.basicConfig(format=LOG_FORMAT, level=LOG_LEVEL, stream=sys.stdout)
 logger = logging.getLogger(__name__)
@@ -187,7 +187,7 @@ with st.sidebar:
     st.markdown("## 🐾 About")
     st.markdown(
         "This app uses a **MobileNetV3-Large** deep learning model "
-        "fine-tuned to classify images into **19 animal species**."
+        "fine-tuned to classify images into **23 animal species**."
     )
     st.markdown(f'<span class="device-badge">Device: {DEVICE}</span>', unsafe_allow_html=True)
 
@@ -231,7 +231,7 @@ except Exception as exc:
     st.error(
         f"⚠️ **Model failed to load.**\n\n"
         f"`{type(exc).__name__}: {exc}`\n\n"
-        "Please check that `model/animal_classification_mobilenetv3.pth` "
+        f"Please check that `model/{MODEL_PATH.name}` "
         "exists and is a valid checkpoint."
     )
     st.stop()

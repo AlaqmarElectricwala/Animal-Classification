@@ -1,16 +1,16 @@
 # 🐾 Animal Image Classifier — MobileNetV3
 
-A production-quality **Streamlit** web application that classifies images of animals into **19 species** using a fine-tuned **MobileNetV3-Large** PyTorch model.
+A production-quality **Streamlit** web application that classifies images of animals into **23 species** using a fine-tuned **MobileNetV3-Large** PyTorch model.
 
 ## Supported Animals
 
-badger · bison · boar · cheetah · chimpanzee · cougar · giraffe · gorilla · hippopotamus · jaguar · koala · leopard · lion · llama · orangutan · snow leopard · tiger · weasel · wombat
+antelope · badger · bison · boar · cat · cheetah · chimpanzee · cougar · cow · dog · giraffe · gorilla · hippopotamus · jaguar · koala · leopard · lion · llama · orangutan · snow leopard · tiger · weasel · wombat
 
 ## Project Structure
 
 ```
 ├── model/
-│   └── animal_classification_mobilenetv3.pth   # Trained checkpoint
+│   └── animal_classification_mobilenetv3_23classes.pth   # Trained checkpoint
 ├── app/
 │   ├── app.py              # Streamlit UI entrypoint
 │   ├── model.py            # Model architecture & checkpoint loading
@@ -38,10 +38,10 @@ pip install -r app/requirements.txt
 Ensure the trained model file exists at:
 
 ```
-model/animal_classification_mobilenetv3.pth
+model/animal_classification_mobilenetv3_23classes.pth
 ```
 
-This should be a **MobileNetV3-Large** state_dict with a 19-class classifier head.
+This should be a **MobileNetV3-Large** state_dict with a 23-class classifier head.
 
 ### 3. Run the app
 
@@ -64,7 +64,7 @@ The app will open in your browser at `http://localhost:8501`.
 ## Expected Input
 
 - **Format:** JPEG or PNG image files
-- **Content:** Photographs of animals from the 19 supported species
+- **Content:** Photographs of animals from the 23 supported species
 - **Size:** Up to 10 MB per image
 - **Preprocessing:** Images are automatically resized to 256px (shortest edge), center-cropped to 224×224, and normalised using ImageNet statistics
 
@@ -75,7 +75,7 @@ The app will open in your browser at `http://localhost:8501`.
 | Architecture     | MobileNetV3-Large                   |
 | Input size       | 224 × 224 px                        |
 | Normalisation    | ImageNet mean/std                   |
-| Output classes   | 19                                  |
+| Output classes   | 23                                  |
 | Inference device | Auto-detected (CUDA → MPS → CPU)   |
 | Framework        | PyTorch + torchvision               |
 | UI               | Streamlit                           |

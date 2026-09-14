@@ -6,14 +6,14 @@
 [![Python](https://img.shields.io/badge/Python-3.9%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-An end-to-end deep learning system for **19-species animal classification** using fine-tuned **MobileNetV3-Large** in PyTorch, paired with a modern, glassmorphism-styled **Streamlit** web interface.
+An end-to-end deep learning system for **23-species animal classification** using fine-tuned **MobileNetV3-Large** in PyTorch, paired with a modern, glassmorphism-styled **Streamlit** web interface.
 
 ---
 
 ## 🌟 Key Features
 
 - **🚀 MobileNetV3-Large Backbone**: Optimized for lightweight, high-speed inference without compromising precision.
-- **🎯 19 Animal Classes**: Classifies a diverse range of species from lions and leopards to koalas and wombats.
+- **🎯 23 Animal Classes**: Classifies a diverse range of species from domestic animals (cat, dog, cow) to wild species (lion, tiger, antelope, cheetah).
 - **🎨 Glassmorphism Streamlit UI**: Dark mode interactive web application featuring real-time top-5 probability distribution charts.
 - **⚡ Automatic Device Acceleration**: Seamless auto-detection and execution across **CUDA**, **Apple Silicon (MPS)**, and **CPU**.
 - **🛡️ Production-Ready Pipeline**: Includes input validation, image corruption safety checks, file size constraints, and modular pure-function design.
@@ -32,10 +32,10 @@ Animal-Classification/
 │   ├── requirements.txt    # Pinned Python dependencies
 │   └── README.md           # App-specific documentation
 ├── data/
-│   └── dataset/
-│       └── README.md       # Dataset split metrics & breakdown
+│   ├── dataset/            # Dataset splits (train, val, test)
+│   └── README.md           # Dataset split metrics & breakdown
 ├── model/
-│   └── animal_classification_mobilenetv3.pth  # Trained model weights checkpoint
+│   └── animal_classification_mobilenetv3_23classes.pth  # Trained model weights checkpoint
 └── README.md               # Main project documentation
 ```
 
@@ -43,30 +43,34 @@ Animal-Classification/
 
 ## 📊 Dataset Breakdown
 
-The dataset spans 19 animal species with split statistics as detailed below:
+The dataset spans 23 animal species with split statistics as detailed below:
 
 | Species | Train Set | Validation Set | Test Set | Total Images |
 | :--- | :---: | :---: | :---: | :---: |
-| **Badger** | 1,317 | 221 | 188 | 1,726 |
-| **Bison** | 944 | 200 | 212 | 1,356 |
-| **Boar** | 42 | 5 | 8 | 55 |
+| **Antelope** | 296 | 30 | 30 | 356 |
+| **Badger** | 1,719 | 221 | 188 | 2,128 |
+| **Bison** | 1,364 | 200 | 211 | 1,775 |
+| **Boar** | 411 | 26 | 27 | 464 |
+| **Cat** | 4,377 | 500 | 500 | 5,377 |
 | **Cheetah** | 2,267 | 206 | 208 | 2,681 |
-| **Chimpanzee** | 1,028 | 194 | 190 | 1,412 |
+| **Chimpanzee** | 1,383 | 194 | 187 | 1,764 |
 | **Cougar** | 963 | 175 | 191 | 1,329 |
-| **Giraffe** | 889 | 114 | 103 | 1,106 |
-| **Gorilla** | 951 | 225 | 208 | 1,384 |
-| **Hippopotamus** | 1,005 | 213 | 223 | 1,441 |
+| **Cow** | 360 | 30 | 30 | 420 |
+| **Dog** | 4,375 | 500 | 500 | 5,375 |
+| **Giraffe** | 1,285 | 114 | 103 | 1,502 |
+| **Gorilla** | 1,332 | 225 | 208 | 1,765 |
+| **Hippopotamus** | 1,403 | 213 | 223 | 1,839 |
 | **Jaguar** | 1,151 | 16 | 20 | 1,187 |
-| **Koala** | 3,464 | 177 | 238 | 3,879 |
-| **Leopard** | 1,284 | 188 | 208 | 1,680 |
-| **Lion** | 1,507 | 192 | 219 | 1,918 |
-| **Llama** | 950 | 215 | 205 | 1,370 |
-| **Orangutan** | 1,380 | 192 | 206 | 1,778 |
+| **Koala** | 3,857 | 177 | 238 | 4,272 |
+| **Leopard** | 1,713 | 188 | 208 | 2,109 |
+| **Lion** | 1,917 | 192 | 219 | 2,328 |
+| **Llama** | 950 | 215 | 208 | 1,373 |
+| **Orangutan** | 1,803 | 192 | 206 | 2,201 |
 | **Snow Leopard** | 1,282 | 180 | 202 | 1,664 |
-| **Tiger** | 2,492 | 179 | 202 | 2,873 |
+| **Tiger** | 2,894 | 179 | 202 | 3,275 |
 | **Weasel** | 1,121 | 172 | 188 | 1,481 |
-| **Wombat** | 1,272 | 217 | 184 | 1,673 |
-| **Total** | **25,809** | **3,284** | **3,595** | **32,688** |
+| **Wombat** | 1,685 | 217 | 184 | 2,086 |
+| **Total** | **39,908** | **4,362** | **4,481** | **48,751** |
 
 ---
 
@@ -90,7 +94,7 @@ pip install -r app/requirements.txt
 ### 3. Verify Model Checkpoint
 Ensure the trained PyTorch weights file is placed at:
 ```
-model/animal_classification_mobilenetv3.pth
+model/animal_classification_mobilenetv3_23classes.pth
 ```
 
 ### 4. Launch the Web App
@@ -107,7 +111,7 @@ The web dashboard will launch automatically at `http://localhost:8501`.
 ## 🛠️ Technical Specifications
 
 - **Model Architecture**: `MobileNetV3-Large` (`torchvision.models.mobilenet_v3_large`)
-- **Classifier Head**: Modified `Linear(1280, 19)` final projection layer
+- **Classifier Head**: Modified `Linear(1280, 23)` final projection layer
 - **Preprocessing Pipeline**:
   - Image Resizing: Shortest edge scaled to `256px`
   - Center Crop: `224 × 224 px`
