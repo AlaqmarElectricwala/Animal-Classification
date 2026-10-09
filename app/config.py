@@ -24,38 +24,79 @@ LOG_LEVEL: int = logging.INFO
 # ---------------------------------------------------------------------------
 _APP_DIR: pathlib.Path = pathlib.Path(__file__).resolve().parent
 PROJECT_ROOT: pathlib.Path = _APP_DIR.parent
-MODEL_PATH: pathlib.Path = PROJECT_ROOT / "model" / "animal_classification_mobilenetv3_23classes.pth"
+MODEL_PATH: pathlib.Path = PROJECT_ROOT / "model" / "animal_classification_mobilenetv3_large.pth"
 
 # ---------------------------------------------------------------------------
-# Class labels — ground-truth order, must not be reordered
+# Class labels — ground-truth order (alphabetical, as produced by ImageFolder)
 # ---------------------------------------------------------------------------
 CLASS_NAMES: List[str] = [
+    "alpaca",
+    "angora",
     "antelope",
+    "armadillo",
     "badger",
+    "bat",
+    "bear",
+    "beetle",
     "bison",
     "boar",
+    "bullfrog",
+    "camel",
+    "capybara",
     "cat",
     "cheetah",
     "chimpanzee",
+    "cock",
+    "colobus",
     "cougar",
     "cow",
+    "crocodile",
+    "deer",
     "dog",
+    "elephant",
+    "fly",
+    "fox",
     "giraffe",
+    "goldfish",
     "gorilla",
+    "hammerhead",
+    "hamster",
+    "hare",
     "hippopotamus",
+    "hog",
+    "hyena",
+    "indri",
     "jaguar",
     "koala",
+    "langur",
+    "leatherback_turtle",
     "leopard",
     "lion",
     "llama",
+    "marmoset",
+    "mink",
+    "mosquito",
+    "okapi",
     "orangutan",
+    "possum",
+    "proboscis_monkey",
+    "puffer",
+    "scorpion",
+    "seahorse",
+    "snake",
     "snow_leopard",
+    "squirrel",
+    "tarantula",
     "tiger",
+    "tortoise",
+    "warthog",
     "weasel",
+    "wolf_spider",
     "wombat",
+    "zebra",
 ]
 
-NUM_CLASSES: int = len(CLASS_NAMES)  # 23
+NUM_CLASSES: int = len(CLASS_NAMES)  # 64
 
 # ---------------------------------------------------------------------------
 # Preprocessing — matches ImageNet normalisation used during training

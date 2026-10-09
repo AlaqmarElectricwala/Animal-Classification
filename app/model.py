@@ -1,5 +1,5 @@
 """
-Model definition and checkpoint loading for MobileNetV3-Large (23-class).
+Model definition and checkpoint loading for MobileNetV3-Large (64-class).
 
 This module builds the correct torchvision architecture and provides a
 robust loader that handles:
@@ -29,7 +29,10 @@ logger = logging.getLogger(__name__)
 
 # ── Architecture ──────────────────────────────────────────────────────────
 
-def build_mobilenetv3_large(num_classes: int = NUM_CLASSES) -> nn.Module:
+def build_mobilenetv3_large(
+    num_classes: int = NUM_CLASSES,
+    dropout: float = 0.3,
+) -> nn.Module:
     """Construct a MobileNetV3-Large with the classifier head modified
     for *num_classes* outputs.
 
@@ -42,11 +45,32 @@ def build_mobilenetv3_large(num_classes: int = NUM_CLASSES) -> nn.Module:
             3: Linear(1280, 1000),
         )
 
-    We replace layer 3 with ``Linear(1280, num_classes)``.
+    The training notebook replaces the entire classifier with::
+
+        Sequential(
+            0: Linear(960, 1280),
+            1: Hardswish(),
+            2: Dropout(p=dropout, inplace=True),
+            3: Sequential(
+                0: Dropout(p=dropout, inplace=True),
+                1: Linear(1280, num_classes),
+            ),
+        )
+
+    .. note:: The nested Sequential at position 3 produces state-dict
+       keys like ``classifier.3.1.weight``, matching the saved checkpoint.
     """
     model = models.mobilenet_v3_large(weights=None)
     in_features: int = model.classifier[3].in_features  # 1280
-    model.classifier[3] = nn.Linear(in_features, num_classes)
+    model.classifier = nn.Sequential(
+        nn.Linear(960, 1280),
+        nn.Hardswish(inplace=True),
+        nn.Dropout(p=dropout, inplace=True),
+        nn.Sequential(
+            nn.Dropout(p=dropout, inplace=True),
+            nn.Linear(in_features, num_classes),
+        ),
+    )
     return model
 
 
