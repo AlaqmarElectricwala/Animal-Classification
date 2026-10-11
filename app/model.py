@@ -1,5 +1,5 @@
 """
-Model definition and checkpoint loading for MobileNetV3-Large (64-class).
+Model definition and checkpoint loading for MobileNetV3-Large (93-class).
 
 This module builds the correct torchvision architecture and provides a
 robust loader that handles:

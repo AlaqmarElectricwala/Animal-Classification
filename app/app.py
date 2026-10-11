@@ -187,7 +187,7 @@ with st.sidebar:
     st.markdown("## 🐾 About")
     st.markdown(
         "This app uses a **MobileNetV3-Large** deep learning model "
-        "fine-tuned to classify images into **64 animal species**."
+        "fine-tuned to classify images into **93 animal species**."
     )
     st.markdown(f'<span class="device-badge">Device: {DEVICE}</span>', unsafe_allow_html=True)
 
