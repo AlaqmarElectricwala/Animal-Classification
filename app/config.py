@@ -35,7 +35,6 @@ CLASS_NAMES: List[str] = [
     "antelope",
     "armadillo",
     "badger",
-    "barn_spider",
     "bat",
     "bear",
     "bee",
@@ -72,14 +71,19 @@ CLASS_NAMES: List[str] = [
     "giraffe",
     "goat",
     "goldfish",
+    "goose",
     "gorilla",
     "grasshopper",
     "guinea_pig",
     "hammerhead",
     "hamster",
     "hare",
+    "hedgehog",
     "hippopotamus",
     "hog",
+    "hornbill",
+    "horse",
+    "hummingbird",
     "hyena",
     "indri",
     "jaguar",
@@ -91,7 +95,10 @@ CLASS_NAMES: List[str] = [
     "leatherback_turtle",
     "leopard",
     "lion",
+    "lizard",
     "llama",
+    "lobster",
+    "mantis",
     "marmoset",
     "mink",
     "mongoose",
@@ -112,6 +119,7 @@ CLASS_NAMES: List[str] = [
     "snail",
     "snake",
     "snow_leopard",
+    "spider",
     "spider_monkey",
     "squirrel",
     "tarantula",
@@ -120,12 +128,11 @@ CLASS_NAMES: List[str] = [
     "tortoise",
     "warthog",
     "weasel",
-    "wolf_spider",
     "wombat",
     "zebra",
 ]
 
-NUM_CLASSES: int = len(CLASS_NAMES)  # 93
+NUM_CLASSES: int = len(CLASS_NAMES)  # 100
 
 # ---------------------------------------------------------------------------
 # Preprocessing — matches ImageNet normalisation used during training

@@ -1,10 +1,10 @@
 # 🐾 Animal Image Classifier — MobileNetV3
 
-A production-quality **Streamlit** web application that classifies images of animals into **93 species** using a fine-tuned **MobileNetV3-Large** PyTorch model.
+A production-quality **Streamlit** web application that classifies images of animals into **100 species** using a fine-tuned **MobileNetV3-Large** PyTorch model.
 
 ## Supported Animals
 
-alpaca · angora · antelope · armadillo · badger · barn spider · bat · bear · bee · beetle · bison · boar · bullfrog · camel · capybara · cat · caterpillar · cheetah · chimpanzee · cock · cockroach · colobus · cougar · cow · coyote · crocodile · crow · deer · dog · dolphin · donkey · dragonfly · duck · eagle · elephant · flamingo · fly · fox · gazelle · giraffe · goat · goldfish · gorilla · grasshopper · guinea pig · hammerhead · hamster · hare · hippopotamus · hog · hyena · indri · jaguar · jellyfish · kangaroo · koala · ladybugs · langur · leatherback turtle · leopard · lion · llama · marmoset · mink · mongoose · mosquito · mule · okapi · orangutan · porcupine · possum · proboscis monkey · puffer · red panda · reindeer · rock crab · scorpion · seahorse · seal · snail · snake · snow leopard · spider monkey · squirrel · tarantula · terrapin · tiger · tortoise · warthog · weasel · wolf spider · wombat · zebra
+alpaca · angora · antelope · armadillo · badger · bat · bear · bee · beetle · bison · boar · bullfrog · camel · capybara · cat · caterpillar · cheetah · chimpanzee · cock · cockroach · colobus · cougar · cow · coyote · crocodile · crow · deer · dog · dolphin · donkey · dragonfly · duck · eagle · elephant · flamingo · fly · fox · gazelle · giraffe · goat · goldfish · goose · gorilla · grasshopper · guinea pig · hammerhead · hamster · hare · hedgehog · hippopotamus · hog · hornbill · horse · hummingbird · hyena · indri · jaguar · jellyfish · kangaroo · koala · ladybugs · langur · leatherback turtle · leopard · lion · lizard · llama · lobster · mantis · marmoset · mink · mongoose · mosquito · mule · okapi · orangutan · porcupine · possum · proboscis monkey · puffer · red panda · reindeer · rock crab · scorpion · seahorse · seal · snail · snake · snow leopard · spider · spider monkey · squirrel · tarantula · terrapin · tiger · tortoise · warthog · weasel · wombat · zebra
 
 ## Project Structure
 
@@ -41,7 +41,7 @@ Ensure the trained model file exists at:
 model/animal_classification_mobilenetv3_large.pth
 ```
 
-This should be a **MobileNetV3-Large** state_dict with a 93-class classifier head.
+This should be a **MobileNetV3-Large** state_dict with a 100-class classifier head.
 
 ### 3. Run the app
 
@@ -64,7 +64,7 @@ The app will open in your browser at `http://localhost:8501`.
 ## Expected Input
 
 - **Format:** JPEG or PNG image files
-- **Content:** Photographs of animals from the 93 supported species
+- **Content:** Photographs of animals from the 100 supported species
 - **Size:** Up to 10 MB per image
 - **Preprocessing:** Images are automatically resized to 256px (shortest edge), center-cropped to 224×224, and normalised using ImageNet statistics
 
@@ -75,7 +75,7 @@ The app will open in your browser at `http://localhost:8501`.
 | Architecture     | MobileNetV3-Large                   |
 | Input size       | 224 × 224 px                        |
 | Normalisation    | ImageNet mean/std                   |
-| Output classes   | 93                                  |
+| Output classes   | 100                                 |
 | Inference device | Auto-detected (CUDA → MPS → CPU)   |
 | Framework        | PyTorch + torchvision               |
 | UI               | Streamlit                           |

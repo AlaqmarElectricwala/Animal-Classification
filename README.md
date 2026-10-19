@@ -6,14 +6,14 @@
 [![Python](https://img.shields.io/badge/Python-3.9%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-An end-to-end deep learning system for **93-species animal classification** using a fine-tuned **MobileNetV3-Large** PyTorch architecture, paired with a modern, glassmorphism-styled **Streamlit** web interface.
+An end-to-end deep learning system for **100-species animal classification** using a fine-tuned **MobileNetV3-Large** PyTorch architecture, paired with a modern, glassmorphism-styled **Streamlit** web interface.
 
 ---
 
 ## 🌟 Key Features
 
 - **🚀 MobileNetV3-Large Backbone**: Optimized for lightweight, high-speed inference without compromising precision.
-- **🎯 93 Animal Classes**: Trained to recognize a diverse taxonomy of 93 species—spanning mammals, birds, reptiles, amphibians, insects, arachnids, and marine life.
+- **🎯 100 Animal Classes**: Trained to recognize a diverse taxonomy of 100 species—spanning mammals, birds, reptiles, amphibians, insects, arachnids, and marine life.
 - **🎨 Glassmorphism Streamlit UI**: Dark mode interactive web application featuring real-time top-5 probability distribution charts, animal chips, and responsive layout.
 - **⚡ Automatic Device Acceleration**: Seamless auto-detection and execution across **CUDA**, **Apple Silicon (MPS)**, and **CPU**.
 - **🛡️ Production-Ready Pipeline**: Includes input validation, image corruption safety checks, file size constraints, and modular pure-function design.
@@ -32,10 +32,10 @@ Animal-Classification/
 │   ├── requirements.txt    # App-specific Python dependencies
 │   └── README.md           # App-specific documentation
 ├── data/
-│   ├── dataset/            # Dataset splits (train, val, test) across 94 classes
+│   ├── dataset/            # Dataset splits (train, val, test)
 │   └── README.md           # Full dataset split metrics & per-species breakdown
 ├── model/
-│   └── animal_classification_mobilenetv3_large.pth  # Trained model checkpoint (93 classes)
+│   └── animal_classification_mobilenetv3_large.pth  # Trained model checkpoint (100 classes)
 ├── train.ipynb             # Training, evaluation & checkpoint export notebook
 ├── requirements.txt        # Full project dependencies (app + training pipeline)
 └── README.md               # Main project documentation
@@ -45,7 +45,7 @@ Animal-Classification/
 
 ## 📊 Dataset Overview
 
-The dataset contains **139,208 total images** organized across **94 animal species** in standardized ImageFolder splits:
+The dataset contains **139,208 total images** organized across animal species in standardized ImageFolder splits:
 
 | Split | Image Count | Percentage |
 | :--- | :---: | :---: |
@@ -54,16 +54,16 @@ The dataset contains **139,208 total images** organized across **94 animal speci
 | **Test Set** | 15,736 | 11.3% |
 | **Total** | **139,208** | **100.0%** |
 
-> 📌 **Note on Classes**: The currently deployed model checkpoint classifies across **93 species**. A complete per-class tabular breakdown across all 94 species is available in [`data/README.md`](data/README.md).
+> 📌 **Note on Classes**: The currently deployed model checkpoint classifies across **100 species**.
 
 ---
 
-## 🐾 Supported Animal Species (93)
+## 🐾 Supported Animal Species (100)
 
 <details>
-<summary>Click to view all 93 supported animal species</summary>
+<summary>Click to view all 100 supported animal species</summary>
 
-Alpaca · Angora · Antelope · Armadillo · Badger · Barn Spider · Bat · Bear · Bee · Beetle · Bison · Boar · Bullfrog · Camel · Capybara · Cat · Caterpillar · Cheetah · Chimpanzee · Cock · Cockroach · Colobus · Cougar · Cow · Coyote · Crocodile · Crow · Deer · Dog · Dolphin · Donkey · Dragonfly · Duck · Eagle · Elephant · Flamingo · Fly · Fox · Gazelle · Giraffe · Goat · Goldfish · Gorilla · Grasshopper · Guinea Pig · Hammerhead · Hamster · Hare · Hippopotamus · Hog · Hyena · Indri · Jaguar · Jellyfish · Kangaroo · Koala · Ladybugs · Langur · Leatherback Turtle · Leopard · Lion · Llama · Marmoset · Mink · Mongoose · Mosquito · Mule · Okapi · Orangutan · Porcupine · Possum · Proboscis Monkey · Puffer · Red Panda · Reindeer · Rock Crab · Scorpion · Seahorse · Seal · Snail · Snake · Snow Leopard · Spider Monkey · Squirrel · Tarantula · Terrapin · Tiger · Tortoise · Warthog · Weasel · Wolf Spider · Wombat · Zebra
+Alpaca · Angora · Antelope · Armadillo · Badger · Bat · Bear · Bee · Beetle · Bison · Boar · Bullfrog · Camel · Capybara · Cat · Caterpillar · Cheetah · Chimpanzee · Cock · Cockroach · Colobus · Cougar · Cow · Coyote · Crocodile · Crow · Deer · Dog · Dolphin · Donkey · Dragonfly · Duck · Eagle · Elephant · Flamingo · Fly · Fox · Gazelle · Giraffe · Goat · Goldfish · Goose · Gorilla · Grasshopper · Guinea Pig · Hammerhead · Hamster · Hare · Hedgehog · Hippopotamus · Hog · Hornbill · Horse · Hummingbird · Hyena · Indri · Jaguar · Jellyfish · Kangaroo · Koala · Ladybugs · Langur · Leatherback Turtle · Leopard · Lion · Lizard · Llama · Lobster · Mantis · Marmoset · Mink · Mongoose · Mosquito · Mule · Okapi · Orangutan · Porcupine · Possum · Proboscis Monkey · Puffer · Red Panda · Reindeer · Rock Crab · Scorpion · Seahorse · Seal · Snail · Snake · Snow Leopard · Spider · Spider Monkey · Squirrel · Tarantula · Terrapin · Tiger · Tortoise · Warthog · Weasel · Wombat · Zebra
 
 </details>
 
@@ -113,7 +113,7 @@ The web dashboard will launch automatically at `http://localhost:8501`.
 ## 🛠️ Technical Specifications
 
 - **Model Architecture**: `MobileNetV3-Large` (`torchvision.models.mobilenet_v3_large`)
-- **Classifier Head**: Modified `Linear(1280, 93)` final projection layer
+- **Classifier Head**: Modified `Linear(1280, 100)` final projection layer
 - **Preprocessing Pipeline**:
   - Image Resizing: Shortest edge scaled to `256px`
   - Center Crop: `224 × 224 px`
